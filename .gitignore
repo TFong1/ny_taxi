@@ -1,0 +1,15 @@
+/.terraform
+/.terraform.lock.hcl
+/data_pgadmin
+/docker-postgres-notes.txt
+/Google-Cloud-output-01.png
+/Google-Cloud-output-02.png
+/ny_taxi_postgres_data
+/output.csv
+/pipeline.py
+/taxi+_zone_lookup.csv
+/taxi-ingestion.sh
+/terraform.tfstate
+/terraform.tfstate.backup
+/upload-data.ipynb
+/yellow_tripdata_2021-01.csv
