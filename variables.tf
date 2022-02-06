@@ -3,7 +3,7 @@ locals {
 }
 
 variable "project" {
-    description = "dtc-de-course-339918"
+    description = "Enter the Project ID in Google Cloud Service:"
 }
 
 variable "region" {
