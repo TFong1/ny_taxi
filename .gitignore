@@ -13,5 +13,5 @@
 /terraform.tfstate.backup
 /upload-data.ipynb
 /yellow_tripdata_2021-01.csv
-/logs/*
-/dags/__pycache__/*
+logs/
+dags/__pycache__/
