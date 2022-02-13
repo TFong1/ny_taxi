@@ -9,13 +9,21 @@ services:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
       - "5432:5432"
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
-    ports:
-      - "8085:80"
-    volumes:
-      - ./data_pgadmin:/var/lib/pgadmin
-    
+    networks:
+      - airflow
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+  #     - PGADMIN_DEFAULT_PASSWORD=root
+  #   ports:
+  #     - "8085:80"
+  #   volumes:
+  #     - ./data_pgadmin:/var/lib/pgadmin
+
+
+# Connect airflow docker (week_02_default)
+networks:
+  airflow:
+    external:
+      name: week_02_default

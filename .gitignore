@@ -4,7 +4,7 @@
 /docker-postgres-notes.txt
 /Google-Cloud-output-01.png
 /Google-Cloud-output-02.png
-/ny_taxi_postgres_data
+ny_taxi_postgres_data/
 /output.csv
 /pipeline.py
 /taxi+_zone_lookup.csv
@@ -15,3 +15,4 @@
 /yellow_tripdata_2021-01.csv
 logs/
 __pycache__/
+
