@@ -1,5 +1,7 @@
-/.terraform
-/.terraform.lock.hcl
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
 /data_pgadmin
 /docker-postgres-notes.txt
 /Google-Cloud-output-01.png

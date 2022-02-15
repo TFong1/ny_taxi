@@ -1,0 +1,5 @@
+PS C:\Projects\ny_taxi_postgres_data\week_01> gcloud --version
+Google Cloud SDK 370.0.0
+bq 2.0.73
+core 2022.01.21
+gsutil 5.6
