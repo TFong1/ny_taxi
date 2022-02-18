@@ -23,3 +23,10 @@ https://stackoverflow.com/questions/38088279/communication-between-multiple-dock
 Enter command:  $docker exec -it _container id_ bash
 Enter python interactive mode:  $ python
 Use pgcli command:  $ pgcli -h localhost -p 5432 -U root -d ny_taxi
+
+
+# Reference Links
+
+* [Running Airflow in Docker](https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html)
+* [Building a Docker Image](https://airflow.apache.org/docs/docker-stack/build.html)
+* [Docker File Recipes](https://airflow.apache.org/docs/docker-stack/recipes.html)
