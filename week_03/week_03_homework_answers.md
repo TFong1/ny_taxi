@@ -35,7 +35,7 @@ Create a table with optimized clustering and partitioning, and run a COUNT(*).  
 **What will be the best partitioning or clustering strategy when filtering on dispatching_base_num and SR_Flag?**
 Review partitioning and clustering video.  Partitioning cannot be created on all data types.
 
-    Create a partition on dispatching_base_num and cluster by SR_Flag because there are almost 800 distinct dispatching base nums and only 43 SR_Flags.  Doing it the other way will generate more data per SR_Flag and BigQuery will have to process more data per partition.
+    Since creating partitioning with string data.  Only a field that is either a DATE, TIMESTAMP, or DATETIME fields are supported in BigQuery.  Therefore, the best strategy involved creating a cluster with dispatching_base_num and then SR_Flag.
 
 ## Question 6
 
@@ -43,9 +43,11 @@ Review partitioning and clustering video.  Partitioning cannot be created on all
 Partitioning and clustering also creates extra metadata.
 Before query exeuction this metadata needs to be processed.
 
-    
+    There will be no improvements or a decrease in performance due to a large metadata.
 
 ## Question 7 (Not Required)
 
 **In which format does BigQuery save data?**
 Review BigQuery internals video.
+
+    BigQuery stores data in a columar format.  This allows an increase in efficiency with aggregating data.
