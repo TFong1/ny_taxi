@@ -1,6 +1,8 @@
 
 # Homework Week #2 Notes
 
+NY taxi data URL:  [https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+
 ## For-Hire Vehicle (FHV) 2019 trip records
 
 * template: "https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-_mm_.csv"; where _mm_ is the two digit month
