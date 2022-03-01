@@ -105,6 +105,7 @@ default_args = dict(
 )
 
 
+# https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-01.csv
 yellow_taxi_data_dag = DAG(
     dag_id = "ingest_yellow_taxi_gcs",
     schedule_interval = "0 6 2 * *",
@@ -129,6 +130,34 @@ upload_parquetized_data(
     local_csv_path= yellow_taxi_csv_path,
     local_parquet_path= yellow_taxi_parquet_path,
     gcs_parquet_path= yellow_taxi_gcs_parquet_path
+)
+
+
+# https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2019-01.csv
+green_taxi_data_dag = DAG(
+    dag_id = "ingest_green_taxi_gcs",
+    schedule_interval = "0 6 2 * *",
+    start_date = datetime(2019, 1, 1),
+    end_date = datetime(2021, 1, 1),
+    default_args = default_args,
+    catchup = True,
+    max_active_runs = 1,
+    tags = ["dtc-de"]
+)
+
+green_taxi_dataset_file = "green_tripdata_{{ execution_date.strftime('%Y-%m') }}.csv"
+green_taxi_dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{green_taxi_dataset_file}"
+green_taxi_csv_path = f"{path_to_local_home}/{green_taxi_dataset_file}"
+green_taxi_parquet_file = green_taxi_dataset_file.replace('.csv', '.parquet')
+green_taxi_parquet_path = f"{path_to_local_home}/{green_taxi_parquet_file}"
+green_taxi_gcs_parquet_path = "raw/green_taxi_tripdata/{{ execution_date.strftime('%Y') }}/" + f"{green_taxi_parquet_file}"
+
+upload_parquetized_data(
+    dag = green_taxi_data_dag,
+    dataset_url= green_taxi_dataset_url,
+    local_csv_path= green_taxi_csv_path,
+    local_parquet_path= green_taxi_parquet_path,
+    gcs_parquet_path= green_taxi_gcs_parquet_path
 )
 
 
