@@ -22,7 +22,7 @@ from google.cloud import storage
 """
 
 
-init_url = "https://nyc-tlc.s3.amazonaws.com/trip+data/"
+init_url = "https://s3.amazonaws.com/nyc-tlc/trip+data/"
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc_data_lake_dtc-de-course-339918")
 
 
@@ -33,8 +33,8 @@ def upload_to_gcs(bucket, object_name, local_file):
 
     # # WORKAROUND to prevent timeout for files > 6 MB on 800 kbps upload speed.
     # # (Ref: https://github.com/googleapis/python-storage/issues/74)
-    # storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
-    # storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
+    storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
+    storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
 
     client = storage.Client()
     bucket = client.bucket(bucket)
