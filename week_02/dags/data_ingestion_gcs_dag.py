@@ -27,8 +27,12 @@ def format_to_parquet(src_file):
     if not src_file.endswith(".csv"):
         logging.error("Can only accept source files in CSV format.")
         return
-    table = pv.read_csv(src_file)
+    # Work around for the ehail_fee problem with green taxi data not being consistent with data types
+    # Convert ehail_fee to double precision
+    #table = pv.read_csv(src_file)
+    table = pv.read_csv(src_file, convert_options = pv.ConvertOptions(column_types = {'ehail_fee':'float64'}))
     pq.write_table(table, src_file.replace(".csv", ".parquet"))
+
 
 
 # NOTE:  This takes a long time, but faster if Internet has better upload speed
