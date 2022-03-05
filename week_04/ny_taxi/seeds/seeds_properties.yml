@@ -1,9 +1,0 @@
-version: 2
-
-seeds:
-    - name: taxi_zone_lookup
-      description: >
-        Taxi zones roughly based on New York City's Department of City Planning Neighborhood 
-        Tabulation Areas (NTAs) and are meant to approximate neighborhoods, so you can see which
-        neighborhood a passenger was picked up in, and which neighborhood they dropped off in.
-        Includes associated service zone (EWR, Boro Zone, Yellow Zone).
