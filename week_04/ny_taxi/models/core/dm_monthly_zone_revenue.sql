@@ -13,7 +13,7 @@ WITH trips_data AS (
         service_type,
 
         -- Revenue calculation
-        SUM(fare) AS revenue_monthly_fare,
+        SUM(fare_amount) AS revenue_monthly_fare,
         SUM(extra) AS revenue_monthly_extra,
         SUM(mta_tax) AS revenue_monthly_mta_tax,
         SUM(tip_amount) AS revenue_monthly_tip_amount,
